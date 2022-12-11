@@ -1,0 +1,15 @@
+name: Welcome
+on:
+  issues:
+    types: [opened]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: wow-actions/welcome@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FIRST_ISSUE_REACTIONS: '+1, hooray, rocket, heart'
+          FIRST_ISSUE_COMMENT: |
+            👋 @{{ author }}
+             Thanks for opening your first issue here! Be sure to follow the issue template!
